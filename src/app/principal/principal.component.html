@@ -1,0 +1,18 @@
+<h1>hola mundo {{title}}</h1>
+<h2>nombre: {{nombre}}</h2>
+<h2>edad: {{edad}}</h2>
+
+<img [src]="imagen" alt="">
+<button (click)="onClick()">click</button>
+<br>
+<br>
+<br>
+<h1>contador</h1>
+<p>{{contador}}</p>
+<button (click)="incre()">+</button>
+<button (click)="decre()">-</button>
+<br>
+<br>
+<br>
+<input type="text" name ='nombre' id="nombre" placeholder="Escribe tu nombre"[(ngModel)]= "nombreC">
+<p>Bienvenido: {{nombreC}}</p>

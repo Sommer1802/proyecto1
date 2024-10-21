@@ -1,0 +1,70 @@
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Formulario de Registro</h2>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+    
+      <div class="mb-3">
+        <label for="nombres" class="form-label">Nombres:</label>
+        <input type="text" id="nombres" formControlName="nombres" class="form-control" [ngClass]="{'is-invalid': submitted && f['nombres'].errors}" />
+        <div *ngIf="submitted && f['nombres'].errors" class="invalid-feedback">
+          <small *ngIf="f['nombres'].errors['required']">Nombres es obligatorio</small>
+        </div>
+      </div>
+    
+      <div class="mb-3">
+        <label for="apellidos" class="form-label">Apellidos:</label>
+        <input type="text" id="apellidos" formControlName="apellidos" class="form-control" [ngClass]="{'is-invalid': submitted && f['apellidos'].errors}" />
+        <div *ngIf="submitted && f['apellidos'].errors" class="invalid-feedback">
+          <small *ngIf="f['apellidos'].errors['required']">Apellidos es obligatorio</small>
+        </div>
+      </div>
+    
+      <div class="mb-3">
+        <label for="identificacion" class="form-label">Identificación:</label>
+        <input type="text" id="identificacion" formControlName="identificacion" class="form-control" [ngClass]="{'is-invalid': submitted && f['identificacion'].errors}" />
+        <div *ngIf="submitted && f['identificacion'].errors" class="invalid-feedback">
+          <small *ngIf="f['identificacion'].errors['required']">Identificación es obligatorio</small>
+          <small *ngIf="f['identificacion'].errors['pattern']">Solo números son permitidos</small>
+          <small *ngIf="f['identificacion'].errors['maxlength']">Máximo 10 caracteres permitidos</small>
+        </div>
+      </div>
+    
+      <div class="mb-3">
+        <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento:</label>
+        <input type="date" id="fechaNacimiento" formControlName="fechaNacimiento" class="form-control" [ngClass]="{'is-invalid': submitted && f['fechaNacimiento'].errors}" />
+        <div *ngIf="submitted && f['fechaNacimiento'].errors" class="invalid-feedback">
+          <small *ngIf="f['fechaNacimiento'].errors['required']">Fecha de nacimiento es obligatoria</small>
+        </div>
+      </div>
+    
+      <div class="mb-3">
+        <label for="genero" class="form-label">Género:</label>
+        <select id="genero" formControlName="genero" class="form-select" [ngClass]="{'is-invalid': submitted && f['genero'].errors}">
+          <option value="">Seleccione</option>
+          <option value="masculino">Masculino</option>
+          <option value="femenino">Femenino</option>
+          <option value="otro">Otro</option>
+        </select>
+        <div *ngIf="submitted && f['genero'].errors" class="invalid-feedback">
+          <small *ngIf="f['genero'].errors['required']">Género es obligatorio</small>
+        </div>
+      </div>
+    
+      <div class="mb-3">
+        <label for="pais" class="form-label">País:</label>
+        <select id="pais" formControlName="pais" class="form-select" [ngClass]="{'is-invalid': submitted && f['pais'].errors}">
+          <option value="">Seleccione</option>
+          <option value="colombia">Colombia</option>
+          <option value="argentina">Argentina</option>
+          <option value="mexico">México</option>
+          <option value="españa">España</option>
+        </select>
+        <div *ngIf="submitted && f['pais'].errors" class="invalid-feedback">
+          <small *ngIf="f['pais'].errors['required']">País es obligatorio</small>
+        </div>
+      </div>
+    
+      <button type="submit" class="btn btn-primary w-100">Enviar</button>
+    
+    </form>
+  </div>
+  
